@@ -1,0 +1,347 @@
+/*#grayscale {
+    filter: grayscale(100%);
+}
+#blur {
+    filter: blur(3px);
+}
+#hue-rotation {
+    filter: hue-rotate(90deg);
+}
+#brightness {
+    filter: brightness(0.8);
+}
+#invert {
+    filter: invert(100%);
+}*/
+
+img {
+    width: 100%;
+	margin: 0;
+	overflow: hidden;
+
+}
+
+img.filtered-image-one:hover {
+    animation: grayscale 5s forwards;
+}
+img.filtered-image-two:hover {
+    animation: blur 5s forwards; 
+}
+img.filtered-image-four:hover {
+    animation: invert 5s forwards; 
+}
+img.filtered-image-three:hover {
+    animation: hue-rotation 5s forwards; 
+}
+img.filtered-image-five:hover {
+    animation: brightness 5s forwards;
+}
+
+@keyframes grayscale {
+    from {
+        filter: grayscale(100%);
+    }
+    
+    to {
+        filter: grayscale(0%);
+    }
+}
+@keyframes blur {
+    from {
+        filter: blur(3px);
+    }
+    
+    to {
+        filter: blur(0px);
+    }
+}
+@keyframes invert {
+    from {
+        filter: invert(100%);
+    }
+    
+    to {
+        filter: invert(0%);
+    }
+}
+@keyframes brightness {
+    from {
+        filter: brightness(0%);
+    }
+    
+    to {
+        filter: brightness(100%);
+    }
+}
+@keyframes hue-rotation {
+    from {
+        filter: hue-rotate(360deg);
+    }
+    
+    to {
+        filter: hue-rotate(0deg);
+    }
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* BASIC SETUP */
+/*-------------------------------------------------------------------------------------------*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #fff;
+	color: #555;
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-size: 20px;
+	font-weight: 300;
+	text-rendering: optimizeLegibility;
+}
+
+.clearfix { zoom: 1 }
+.clearfix:after {
+	content: '.';
+    clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* REUSABLE COMPONENTS */
+/*-------------------------------------------------------------------------------------------*/
+
+.row {
+	max-width: 1140px;
+	margin: 0 auto 0 auto;
+}
+
+section {
+	padding: 80px 0;
+}
+
+.box {
+	padding: 1%;
+}
+
+/*----------- HEADINGS ----------------*/
+h1,
+h2,
+h3 {
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #fff;
+	font-size: 240%; /* this will be relative to the font size set in the html above */
+	word-spacing: 3px;
+	letter-spacing: 1px;
+}
+
+h2 {
+	margin-bottom: 30px;
+	font-size: 180%; /* this will be relative to the font size set in the html above */
+	word-spacing: 2px;
+    text-align: center;
+	letter-spacing: 1px;
+}
+
+h3 {
+	margin-bottom: 15px;
+	font-size: 110%; /* this will be relative to the font size set in the html above */
+}
+
+h2:after {
+	display: block;
+	height: 2px;
+	background-color: #e67e22;
+	content: " ";
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+/*----------- PARAGRAPHS ----------------*/
+.long-copy {
+	line-height: 145%;
+	width: 70%;
+    margin-left: 15%;
+}
+
+.box p {
+	font-size: 90%;
+	line-height: 145%;
+}
+
+/*----------- ICONS ----------------*/
+ion-icon {
+	font-size: 128px;
+	color: #e67e22;
+	margin-bottom: 10px;
+}
+
+/*----------- BUTTONS ----------------*/
+.btn:link,
+.btn:visited {
+	/* because our buttons are using an anchor tag which is usually an inline element
+	   we are going to change it to an inline-block so we can add some padding to it */
+	display: inline-block;
+	padding: 10px 30px;
+	font-weight: 300;
+	text-decoration: none;
+	border-radius: 200px;
+	transition: background-color 0.2s, border 0.2s, color 0.2s; /* this allows the transition to take two seconds so not instantaneous */
+}
+
+.btn-full:link,
+.btn-full:visited {
+	background-color: #e67e22;
+	border: 1px solid #e67e22;
+	color: #fff;
+	margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+	border: 1px solid #e67e22;
+	color: #e67e22;
+}
+
+.btn:hover,
+.btn:active {
+	background-color: #cf5d17;
+}
+
+.btn-full:hover,
+.btn-full:active {
+	border: 1px solid #cf5d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+	border: 1px solid #cf5d17;
+	color: #fff;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* HEADER COMPONENTS */
+/*-------------------------------------------------------------------------------------------*/
+
+header {
+	/* Here if we just use the image without the linear-gradient, the text of what we write on the image
+	   will be to low in contrast with the image, so when we use a linear-gradient it is like we are placing
+	   two images one atop the other.  We are not looking for a gradient, so we go from black to black, but
+	   we are going to apply a transparency of 70% to it and thus the rgba */
+	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0) ), url(https://codehs.com/uploads/8f96b918c6a62d62e437a314b8486bf5); 
+	background-size: cover; /* tells the browser we want to see the entire image */
+	background-position: center; /* tells the browser we want the background to be centered */
+	height: 50vh; /* tells the browser we want to fill the entire view port */
+}
+
+.intro-text-box { /* we will not use the grid system, but rather position it absolutely to be able to vertically and horizontally center it */
+	position: absolute;
+	width: 1140px;
+	top: 25%;
+	left: 50%;
+	/* this next transform allows us to place the box in the middle of the screen as otherwise it is position
+	   relative to where it starts */
+	transform: translate(-50%, -50%);
+}
+
+.logo {
+	height: 100px;
+	width: auto;
+	float: left;
+	margin-top: 20px;
+}
+
+.main-nav {
+	float: right;	
+	list-style: none;
+	margin-top: 55px;
+}
+
+.main-nav li {
+	display: inline-block;
+	margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+	padding: 8px 0;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 90%;
+	/* In order to make our border when we hover, we need it to be present but not visible
+	   until we hover over it, so we use the transparent style */
+	border-bottom: 1px solid transparent;
+}
+
+#portfolio li a:link,
+#portfolio li a:visited{
+    color: #000;
+}
+
+.main-nav li a:active,
+.main-nav li a:hover {
+	border-bottom: 1px solid #e67e22;
+	transition: border-bottom 0.2s; /* this allows the transition to take two seconds so not instantaneous */
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* INTERESTS */
+/*-------------------------------------------------------------------------------------------*/
+
+.section-interests {
+	background-color: #f3f3f3;
+}
+
+.section-interests .long-copy {
+	margin-bottom: 30px;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+/* PORTFOLIO FORMATTING */
+/*-------------------------------------------------------------------------------------------*/
+
+.section-portfolio {
+	padding: 0;
+}
+.portfolio-showcase {
+	list-style: none;
+	width: 100%;
+}
+
+.portfolio-showcase li {
+	display: block;
+	float: left;
+	width: 25%; /* This is the percentage that is driven by the number of images we are using side-by-side */
+}
+
+.portfolio-photo {
+	width: 100%;
+	margin: 0;
+	overflow: hidden;
+	background-color: #000;
+}
+
+.portfolio-photo img {
+    opacity: 0.7;
+	width: 100%;
+	height: auto;
+	transform: scale(1.15);
+	transition: transform 0.5s, opacity 0.5s;
+}
+
+.portfolio-photo img:hover {
+	opacity: 1;
+	transform: scale(1.03);
+}
