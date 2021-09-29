@@ -368,3 +368,40 @@ header {
 	padding-top: 10px;
 	padding-bottom: 5px;
 }
+
+.input-box input {
+	width: 90%;
+	border: none;
+	outline:none;
+	background: transparent;
+	color: #fff;
+}
+
+::placeholder{
+	color: #ccc;
+}
+
+.fa{
+	margin-right: 10px;
+}
+
+.eye{
+	position:absolute;
+}
+
+#hide1{
+	display:none;
+}
+
+.login-btn{
+	margin: 40px auto 20px;
+	width: 80%;
+	display: block;
+	outline: none;
+	padding: 10px 0;
+	border: 1px solid #fff;
+	cursor: pointer;
+	background: transparent;
+	color: #fff
+	font-size: 16px;
+}
